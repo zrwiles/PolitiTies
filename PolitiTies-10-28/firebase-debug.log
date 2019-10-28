@@ -1,0 +1,145 @@
+[debug] [2019-10-28T21:03:11.218Z] ----------------------------------------------------------------------
+[debug] [2019-10-28T21:03:11.221Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-10-28T21:03:11.221Z] CLI Version:   7.6.1
+[debug] [2019-10-28T21:03:11.221Z] Platform:      win32
+[debug] [2019-10-28T21:03:11.221Z] Node Version:  v10.16.3
+[debug] [2019-10-28T21:03:11.222Z] Time:          Mon Oct 28 2019 17:03:11 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-10-28T21:03:11.222Z] ----------------------------------------------------------------------
+[debug] [2019-10-28T21:03:11.222Z] 
+[debug] [2019-10-28T21:03:11.231Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-28T21:03:11.232Z] > authorizing via signed-in user
+[debug] [2019-10-28T21:03:11.232Z] [iam] checking project politities for permissions ["firebase.projects.get"]
+[debug] [2019-10-28T21:03:11.234Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/politities:testIamPermissions  
+
+[debug] [2019-10-28T21:03:11.521Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-28T21:03:11.528Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/politities  
+ 
+[debug] [2019-10-28T21:03:11.767Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\tiger\Documents\CS323\PolitiTies-master'...
+[info] 
+[debug] [2019-10-28T21:03:11.816Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/politities/webApps/-/config  
+ 
+[debug] [2019-10-28T21:03:11.980Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at validateString (internal/validators.js:125:11)
+    at Object.join (path.js:427:7)
+    at new FunctionsEmulator (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:42:34)
+    at Object.<anonymous> (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:39:71)
+    at Generator.next (<anonymous>)
+    at C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:3:12)
+    at Object.start (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:16:16)
+    at C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\index.js:15:23
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2019-10-28T21:03:12.093Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-28T21:03:19.106Z] ----------------------------------------------------------------------
+[debug] [2019-10-28T21:03:19.108Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-10-28T21:03:19.108Z] CLI Version:   7.6.1
+[debug] [2019-10-28T21:03:19.109Z] Platform:      win32
+[debug] [2019-10-28T21:03:19.109Z] Node Version:  v10.16.3
+[debug] [2019-10-28T21:03:19.110Z] Time:          Mon Oct 28 2019 17:03:19 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-10-28T21:03:19.110Z] ----------------------------------------------------------------------
+[debug] [2019-10-28T21:03:19.110Z] 
+[debug] [2019-10-28T21:03:19.119Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-28T21:03:19.119Z] > authorizing via signed-in user
+[debug] [2019-10-28T21:03:19.119Z] [iam] checking project politities for permissions ["firebase.projects.get"]
+[debug] [2019-10-28T21:03:19.121Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/politities:testIamPermissions  
+
+[debug] [2019-10-28T21:03:19.461Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-28T21:03:19.467Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/politities  
+ 
+[debug] [2019-10-28T21:03:19.691Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\tiger\Documents\CS323\PolitiTies-master'...
+[info] 
+[debug] [2019-10-28T21:03:19.698Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/politities/webApps/-/config  
+ 
+[debug] [2019-10-28T21:03:19.788Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at validateString (internal/validators.js:125:11)
+    at Object.join (path.js:427:7)
+    at new FunctionsEmulator (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:42:34)
+    at Object.<anonymous> (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:39:71)
+    at Generator.next (<anonymous>)
+    at C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:3:12)
+    at Object.start (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:16:16)
+    at C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\index.js:15:23
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2019-10-28T21:03:19.978Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2019-10-28T21:04:10.289Z] ----------------------------------------------------------------------
+[debug] [2019-10-28T21:04:10.292Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-10-28T21:04:10.292Z] CLI Version:   7.6.1
+[debug] [2019-10-28T21:04:10.292Z] Platform:      win32
+[debug] [2019-10-28T21:04:10.292Z] Node Version:  v10.16.3
+[debug] [2019-10-28T21:04:10.293Z] Time:          Mon Oct 28 2019 17:04:10 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-10-28T21:04:10.293Z] ----------------------------------------------------------------------
+[debug] [2019-10-28T21:04:10.293Z] 
+[debug] [2019-10-28T21:04:10.303Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-28T21:04:10.303Z] > authorizing via signed-in user
+[debug] [2019-10-28T21:04:10.303Z] [iam] checking project politities for permissions ["firebase.projects.get"]
+[debug] [2019-10-28T21:04:10.305Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/politities:testIamPermissions  
+
+[debug] [2019-10-28T21:04:10.592Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-28T21:04:10.594Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/politities  
+ 
+[debug] [2019-10-28T21:04:10.874Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\tiger\Documents\CS323\PolitiTies-master'...
+[info] 
+[debug] [2019-10-28T21:04:10.926Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/politities/webApps/-/config  
+ 
+[debug] [2019-10-28T21:04:11.040Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at validateString (internal/validators.js:125:11)
+    at Object.join (path.js:427:7)
+    at new FunctionsEmulator (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:42:34)
+    at Object.<anonymous> (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:39:71)
+    at Generator.next (<anonymous>)
+    at C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:3:12)
+    at Object.start (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:16:16)
+    at C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\index.js:15:23
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2019-10-28T21:04:11.262Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-28T21:07:22.504Z] ----------------------------------------------------------------------
+[debug] [2019-10-28T21:07:22.510Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-10-28T21:07:22.511Z] CLI Version:   7.6.1
+[debug] [2019-10-28T21:07:22.511Z] Platform:      win32
+[debug] [2019-10-28T21:07:22.511Z] Node Version:  v10.16.3
+[debug] [2019-10-28T21:07:22.514Z] Time:          Mon Oct 28 2019 17:07:22 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-10-28T21:07:22.515Z] ----------------------------------------------------------------------
+[debug] [2019-10-28T21:07:22.515Z] 
+[debug] [2019-10-28T21:07:22.573Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-28T21:07:22.574Z] > authorizing via signed-in user
+[debug] [2019-10-28T21:07:22.575Z] [iam] checking project politities for permissions ["firebase.projects.get"]
+[debug] [2019-10-28T21:07:22.582Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/politities:testIamPermissions  
+
+[debug] [2019-10-28T21:07:22.860Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-28T21:07:22.869Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/politities  
+ 
+[debug] [2019-10-28T21:07:23.150Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\tiger\Documents\CS323\PolitiTies-master'...
+[info] 
+[debug] [2019-10-28T21:07:23.208Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/politities/webApps/-/config  
+ 
+[debug] [2019-10-28T21:07:23.303Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at validateString (internal/validators.js:125:11)
+    at Object.join (path.js:427:7)
+    at new FunctionsEmulator (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:42:34)
+    at Object.<anonymous> (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:39:71)
+    at Generator.next (<anonymous>)
+    at C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:3:12)
+    at Object.start (C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:16:16)
+    at C:\Users\tiger\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\index.js:15:23
+[error] 
+[error] Error: An unexpected error has occurred.
