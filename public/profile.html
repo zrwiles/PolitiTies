@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!Index Firebase >
+
+<html>
+ <!-- update the version number as needed -->
+    <script defer src='/__/firebase/7.2.2/firebase-app.js'></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src='/__/firebase/7.2.2/firebase-auth.js'></script>
+    <script defer src='/__/firebase/7.2.2/firebase-database.js'></script>
+    <script defer src='/__/firebase/7.2.2/firebase-messaging.js'></script>
+    <!--<script defer src="/__/firebase/7.1.0/firebase-storage.js"></script>-->
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src='/__/firebase/7.2.2/firebase-firestore.js'></script>
+    <script defer src='/__/firebase/init.js'></script>
+    
+    
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="profilecss.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+ <div class="card" style="width:33%"> </div>
+            <div class="container">
+                <form class="form-inline active-cyan-4" style="float:right">
+            <input class="form-control form-control-sm mr-3 w-90" type="text" placeholder="Search"
+                aria-label="Search">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </form>
+    
+                
+                <div class="top-right" id="Title"></div>
+            </div>
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>PolitiTies</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            
+            <li class="active">
+                
+                <a href="#">Profile</a>
+            </li>
+            <li>
+                <a href="#">Wellesley</a>
+            </li>
+            <li>
+                <a href="#">Boston</a>
+            </li>
+            <li>
+                <a href="#">Updates</a>
+            </li>
+            
+           
+            <li>
+                <a href="#">Direct Messages</a>
+            </li>
+        </ul>
+     <a id="signOut" href="index.html" onclick="signOut();"> Sign out</a>
+    </nav>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 col-sm-8">
+
+            <div class="card hovercard">
+                <div class="cardheader">
+                    
+                    <img id= "picURL" alt="profile-pic" src="blank.png" class="insideAvatar" />
+                </div>
+              
+                    
+              
+                <div class="info">
+                    <div class="title">
+                        <p id= "Name" target="_blank" href="profile.html"></p>
+                    </div>
+                    <div class="desc">School</div>
+                    <div class="desc">Tags</div>
+                  
+                </div>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-   controls="nav-home" aria-selected="true">Activity</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Ties</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Posts</a>
+                </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...
+                       
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                         <!---<div class="card">
+                             <img id="friend1" src=blank.png style="padding-left=5%;width=5%; height=5%;border-radius=5%; position=relative;"> 
+                             <a id="friendname" href="404.html"> Temp </a>
+                        </div>  ---->
+                        <frameset rows="25%,*,25%">
+                                    <frame src="frame_a.htm">
+                                    <frame src="frame_a.htm">
+                                    
+                        </frameset>
+
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                </div>
+            </div>
+
+        </div>
+
+	</div>
+</div>
+</div>
+  
+    
+</body>
+ <!-- Function -->
+<script>
+    function signOut(){
+        
+        firebase.auth().signOut();
+    }
+    function getUsername(){
+        var name = document.getElementById("Name");
+        
+        name.innerHTML = firebase.auth().currentUser.displayName; 
+    }
+    function getPhotoUrl(){
+        var url = document.getElementById("picURL");
+        url.innerHTML = firebase.auth().currentUser.photoURL; 
+    }
+    </script>
+    
+  
+      
+
+</html>
