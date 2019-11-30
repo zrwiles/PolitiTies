@@ -7,7 +7,8 @@ exports.setupUsers = functions.auth.user().onCreate(async (user) => {
   var fullName = user.displayName || 'Anonymous';
   await admin.firestore().collection('user').doc(user.uid).set({
     Name: fullName,
-    username: user.uid,
+    username:user.uid,
+    
   });
 });
     

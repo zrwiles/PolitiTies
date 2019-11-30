@@ -42,12 +42,15 @@
       <h1> </h1>
         <button id="sign-in" onclick="signIn()"  hidden>Sign-in</button>
         <a href="feed.html" id="feed">Go to Feed</a>
-        <a href="profile.html" id="feed">Go to Profile</a>
+        <a id ="link" href='profile.html?id="+doc.id+"'>Go to Profile</a>
         <p> <a id="load"> status</a> </p>
     </div>
     
     
    <div id="name"></div>
+      
+      
+    
     <script>
     	
       document.addEventListener('DOMContentLoaded', function() {
@@ -56,6 +59,15 @@
         //
         firebase.auth().onAuthStateChanged(authStateObserver);
         intializeApp();
+        
+        
+        var db = firebase.firestore();
+        
+        
+        //db.collection("user").doc(vals[1]).onSnapshot(function (doc) {
+      //  document.getElementById("Name").innerHTML = doc.data().Name;
+            
+       // });
         
         // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
         // firebase.messaging().requestPermission().then(() => { });
@@ -81,15 +93,28 @@
       
      function intializeApp(){
      //get the HTML element where you want to print the name
-           var name = document.getElementById("name"); 
+        //   var name = document.getElementById("name"); 
            var db = firebase.firestore();
-           db.collection("...").doc("...").onSnapshot(function(document) {
-          name.innerHTML = document.data().name;
-         });
+         //  db.collection("...").doc("...").onSnapshot(function(document) {
+       //   name.innerHTML = document.data().name;
+      //   });
+    // Set profile link 
+       
+        
      }
+     function initializeProfile(){
+         var profileLink = firebase.auth().currentUser.uid;
+         var name = document.getElementById("link")
+         name.innerHTML = firebase.auth().currentUser.displayName;
+         name.setAttribute("href", "profile.html?id=" + profileLink);
+     }
+        
 
       function authStateObserver(user) {
+        var user = firebase.auth().currentUser
         if (user) { // User is signed in!
+            
+            initializeProfile();
             document.getElementById("sign-in").hidden = true;
             document.getElementById("sign-out").hidden = false;
         } else { // User is signed out!

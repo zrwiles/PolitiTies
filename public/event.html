@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
             integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <!-- Our Custom CSS -->
-        <link rel="stylesheet" href="profilecss.css">
+        <link rel="stylesheet" href="eventnew.css">
 
         <!-- Font Awesome JS -->
         <script defer src="/__/firebase/7.2.2/firebase-firestore.js"></script>
@@ -80,34 +80,36 @@
                  <a id="signOut" href="index.html" onclick="signOut();"> Sign out</a>
             </nav>
 
-            <div class="card">
-                <!--<img src="earth.jpg" alt="earth" style="width:100%">-->
-                <div id='name'>
-                    <!--all the information needs to be brought in but its not working now -->
+            <div class="card"  id="container" style="width: 30%">
+                <div class="card-body">
+                    <h2 class="card-title"><u>Chat</u></h2>
+                    <div id="chat-box">
+                        <ul class="list-group list-group-flush" id="comment-section"></ul>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="comment" placeholder="Write a message"  aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="send-button">Send</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id = 'text'></div>
-                <div id = 'location'></div>
             </div>
-            <div class="card">
-                    <p>a chat room will go here</p>
+            <div class="card"  style="width: 65%">
+                <img src="" class="card-img" id="post-image" alt="post image" style="height:30%; width:30%"> 
+                <div class="card-body" id="post-contents">
+                    <div id="title"></div>
+                    <div id="location"></div>
+                    <div id="text"></div>
                 </div>
-
-            <!--<div id="name"> -->
-            <!-- <div class="card" ></div>
-            
-            <div class="container" style='width:33%; height:200px' >
-                <img src= "earth.jpg" alt ="event" id="image" ></img>
-                <div class="top-right" id="Title"></div>
             </div>
-    </div> -->
-        </div>
+        </div>    
         <script>
 
             document.addEventListener('DOMContentLoaded', function () {
 
                 // // The Firebase SDK is initialized and available here!
                 //
-                firebase.auth().onAuthStateChanged(authStateObserver);
+               // firebase.auth().onAuthStateChanged(authStateObserver);
                 intializeApp();
 
                 // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
@@ -135,8 +137,8 @@
             function intializeApp() {
                 //get the HTML element where you want to print the name
                 var name = document.getElementById("name");
-                var text = document.getElementByID("text");
-                var loc = document.getElementByID("location");
+                var text = document.getElementById("text");
+                var loc = document.getElementById("location");
                 var db = firebase.firestore();
                 db.collection("posts").doc("23nfkYtelmXDXNG1vfVd").onSnapshot(function (document) {
                     name.innerHTML = document.data().Title;});
@@ -144,11 +146,11 @@
                     text.innerHTML = document.data().text;});
                 db.collection("posts").doc("23nfkYtelmXDXNG1vfVd").onSnapshot(function (document) {
                     loc.innerHTML = document.data().location;});
-                // db.collection("user").get().then(function(querySnapshot) {
-                //  querySnapshot.forEach(function(doc) {
-                //    name.innerHTML= name.innerHTML + doc.data().Name;
-                //     });
-                // });
+                db.collection("user").get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    name.innerHTML= name.innerHTML + doc.data().Name;
+                  });
+                });
 
             }
 
@@ -162,6 +164,36 @@
                 }
             }
 
+            function initializePost() {
+                var db = firebase.firestore();
+                var vals = window.location.search.split("=");
+            
+                db.collection("posts").doc(vals[1]).onSnapshot(function (doc) {
+                    var url = window.location.href + "?id=" + doc.id;
+                    windown.location = url;
+                    document.getElementById("title").innerHTML= doc.data().Title;
+                    document.getElementById("location").innerHTML = doc.data().location ;
+                    document.getElementById("text").innerHTML = doc.data().text;
+                    document.getElementById("post-image").innerHTML = doc.data().image;
+                });     
+            }
+
+            function createComment(comment){
+                var comment = $("<li class=list-group-item></li>");
+                var comment_text = $("<p></p>");
+                var user_name = firebase.auth().currentUser.displayName;
+                $(comment_text).text(user_name + ": " + comment);
+
+                $(comment).append(comment_text);
+                $("#comment-section").append(comment);
+            }
+
+            initializePost();
+
+            $("#send-button").on('click', function() {
+                var message = document.getElementById("comment").innerHTML;
+                createComment(message);
+            });
 
         </script>
     </body>

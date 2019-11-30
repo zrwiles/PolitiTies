@@ -2,7 +2,7 @@
 <!Index Firebase >
 
 <html>
- <!-- update the version number as needed -->
+ <!-- Firebase stuff -->
     <script defer src='/__/firebase/7.2.2/firebase-app.js'></script>
     <!-- include only the Firebase features as you need -->
     <script defer src='/__/firebase/7.2.2/firebase-auth.js'></script>
@@ -13,7 +13,7 @@
     <script defer src='/__/firebase/7.2.2/firebase-firestore.js'></script>
     <script defer src='/__/firebase/init.js'></script>
     
-    
+<!---html actually begins--->  
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,7 +61,7 @@
             
             <li class="active">
                 
-                <a href="#">Profile</a>
+            <a id ="profile" href='profile.html?id="+doc.id+"'> Profile</a>
             </li>
             <li>
                 <a href="#">Wellesley</a>
@@ -83,39 +83,43 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 col-sm-8">
-
+             <button id="follow" style="float:right" type="button" class="btn btn-outline-secondary" onclick="addTie();">add</button>
             <div class="card hovercard">
+                
                 <div class="cardheader">
                     
                     <img id= "picURL" alt="profile-pic" src="blank.png" class="insideAvatar" />
                 </div>
               
                     
-              
+              <nav id="bio">
                 <div class="info">
                     <div class="title">
-                        <p id= "Name" target="_blank" href="profile.html"></p>
+                        <p id= "name" >Name</p>
                     </div>
-                    <div class="desc">School</div>
-                    <div class="desc">Tags</div>
+                    <div class="desc">
+                        <p id= "school" >School</p>
+                    
+                    </div>
+                    <div class="desc">
+                        <p id= "txt-bio" >Bio</p>
+                    </div>
                   
                 </div>
+                </nav>
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-   controls="nav-home" aria-selected="true">Activity</a>
+                        
                         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Ties</a>
                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Posts</a>
                 </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...
-                       
-                    </div>
+                    
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                         <!---<div class="card">
-                             <img id="friend1" src=blank.png style="padding-left=5%;width=5%; height=5%;border-radius=5%; position=relative;"> 
-                             <a id="friendname" href="404.html"> Temp </a>
-                        </div>  ---->
+                         <div class="card" id="completeFL">
+                           
+                        </div>  
                         <frameset rows="25%,*,25%">
                                     <frame src="frame_a.htm">
                                     <frame src="frame_a.htm">
@@ -123,7 +127,17 @@
                         </frameset>
 
                     </div>
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <div class="card" id="postList">
+                            
+                        </div>  
+                         <frameset rows="25%,*,25%">
+                                    <frame src="frame_a.htm">
+                                    <frame src="frame_a.htm">
+                                    
+                        </frameset>
+                    
+                    </div>
                 </div>
             </div>
 
@@ -135,21 +149,191 @@
   
     
 </body>
+    
+
+
  <!-- Function -->
 <script>
+        document.addEventListener('DOMContentLoaded', function() {
+       
+        // // The Firebase SDK is initialized and available here!
+        //
+        firebase.auth().onAuthStateChanged(authStateObserver);
+        //intializeApp();
+        
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // spliting current page url at = sign making into an array and elt 1 of array is after the = sign 
+        
+            
+        
+     
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          
+        } catch (e) {
+          console.error(e);
+          
+        }
+      });
+      function signIn() {
+         var provider = new firebase.auth.GoogleAuthProvider();
+         firebase.auth().signInWithPopup(provider);
+         //window.location = "feed.html";
+      }
+    
+      
+     function intializeApp(){
+         
+     //get the HTML element where you want to print the name
+           //var name = document.getElementById("name"); 
+       //    var db = firebase.firestore();
+        //   db.collection("...").doc("...").onSnapshot(function(document) {
+      //    name.innerHTML = document.data().name;
+       //  });
+     }
+    function addTie(){
+        var vals = window.location.search.split("=");
+        var db = firebase.firestore();
+        var currentUser = firebase.auth().currentUser.uid;
+        // if not on users page 
+        if (currentUser != vals[1]){
+         // create an empty friends arr
+         var friendsList =[];
+            // get info from current list of friends 
+            db.collection("user").doc(currentUser).onSnapshot(function (doc) {
+                friends = doc.data().friends;
+                var i;
+                for (i = 0; i < friends.length; i++){
+                    friendsList.push(friends[i]); 
+                }
+          }); 
+        var i;
+        for (i = 0; i < friendsList.length; i++){
+            console.log(friendsList[i]);
+        }
+        friendsList.push(vals[1]);
+       // for (i = 0; i < friendsList.length; i++){
+      //      console.log(friendsList[i]);
+      //  }
+        db.collection("user").doc(vals[1]).update({
+            friends: friendsList,
+        });
+
+         
+        }
+        
+    }
+    
+
+      function authStateObserver(user) {
+        
+        if (user) { 
+            console.log("user signed in");// User is signed in!
+            goToProfile();
+            getUsername();
+            createFriendsList();
+            createPostsList();
+    //        document.getElementById("sign-in").hidden = true;
+    //        document.getElementById("sign-out").hidden = false;
+        } else { 
+            console.log("nope");
+            // User is signed out!
+     //       document.getElementById("sign-in").hidden = false;
+    //        document.getElementById("sign-out").hidden = true;
+        }}
+
+    
+    
+    ///end of transplant 
     function signOut(){
-        
-        firebase.auth().signOut();
+     firebase.auth().signOut();
     }
+    function goToProfile(){
+         var profileLink = firebase.auth().currentUser.uid;
+         var prof = document.getElementById("profile");
+         prof.setAttribute("href", "profile.html?id=" + profileLink);
+     }
+    
     function getUsername(){
-        var name = document.getElementById("Name");
+      //   var profileLink = firebase.auth().currentUser.uid;
+      // var name = document.getElementById("name")
+    //   name.innerHTML = firebase.auth().currentUser.displayName;
+   //    name.setAttribute("href", "profile.html?id=" + profileLink);
         
-        name.innerHTML = firebase.auth().currentUser.displayName; 
+        var vals = window.location.search.split("=");
+        
+        var db = firebase.firestore();
+       
+        db.collection("user").doc(vals[1]).onSnapshot(function (doc) {
+        document.getElementById("name").innerHTML = doc.data().Name;
+        document.getElementById("school").innerHTML = doc.data().school;
+        document.getElementById("txt-bio").innerHTML = doc.data().bio;
+     });
+
+
+
+        
+        
+        //console.log(db.collection("user").doc(vals[1]));
+      //  db.collection("user").doc(vals[1]).onSnapshot(function (doc) {
+      //      document.getElementById("name").innerHTML = doc.data().Name;
+     //       document.getElementById("school").innerHTML = doc.data().school;
+     //       });
+      
+     //   var name = document.getElementById("Name");
+      //  name.innerHTML = firebase.auth().currentUser.displayName; 
     }
-    function getPhotoUrl(){
-        var url = document.getElementById("picURL");
-        url.innerHTML = firebase.auth().currentUser.photoURL; 
+    function createPostsList(){
+        var posts = document.getElementById("postList");
+        posts.innerHTML = "";
+        var db = firebase.firestore();
+        var vals = window.location.search.split("=");
+        db.collection("user").doc(vals[1]).collection("posts").get().then(function (querySnapshot) {
+         querySnapshot.forEach(function(document){
+            //As you read each post from the database, add it as
+            //a new element to the feed.
+            posts.innerHTML = posts.innerHTML +
+            "<div style= 'margin-left: 1em;color:#00ba9b;font-size: 1em;' id='name'>" +document.data().title+"</div>"+
+            "<div style= 'margin-left: 1em;' id='name'>"+document.data().poster+"</div>"+
+             "<div style= 'margin-left: 1em; ' id='uTitle'>"+document.data().text+"</div>"+
+             "<p>";
+          });
+    });
+        
     }
+    function createFriendsList(){
+        var friendsList = document.getElementById("completeFL");
+        friendsList.innerHTML = "";
+        var db = firebase.firestore();
+        var base = firebase.firestore();
+        var vals = window.location.search.split("=");
+        var friends; 
+        
+        db.collection("user").doc(vals[1]).onSnapshot(function (doc) {
+            friends = doc.data().friends;
+            var i;
+            for (i = 0; i < friends.length; i++){
+                base.collection("user").doc(friends[i]).onSnapshot(function (document) {
+                    
+                    tmphref = "<a style= 'margin-left: .25em;color:#00ba9b;font-size: 1em;' id='friendName" + i.toString + "'"+ " href='profile.html?id=" + document.data().username + "'>";
+                    
+                    friendsList.innerHTML = friendsList.innerHTML + tmphref + document.data().Name + "</a>"+ "<p>";
+                 });
+            
+        }
+                                                              
+        
+     });
+
+            
+         
+    
+    }
+
     </script>
     
   

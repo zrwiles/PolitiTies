@@ -1,9 +1,7 @@
 .wrapper {
     display: flex;
-    align-items: stretch;
+    
 }
-
-
 
 #sidebar.active {
     margin-left: -250px;
@@ -12,7 +10,6 @@
 a[data-toggle="collapse"] {
     position: relative;
 }
-
 
 .dropdown-toggle::after {
     display: block;
@@ -30,7 +27,9 @@ a[data-toggle="collapse"] {
         margin-left: 0;
     }
 }
-
+/*
+    ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
+*/
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 
@@ -39,23 +38,18 @@ body {
     background: #fafafa;
 }
 
-p {
+p, h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: darkslategray;
+    color: #999;
 }
 
 a, a:hover, a:focus {
-    
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
-    padding-left: 1em;
 }
 
 #sidebar {
@@ -99,20 +93,17 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #00ba9b;
+    color: fff;
+    background: 00ba9b;
 }
-card{
-    width 100%;
-    height: 50%; 
-    
-}
-#bio p {
-    padding: 10px;
+
+.card{
+    width: 100%;    
 }
 
 img{
-  padding-left: 5%;
+  padding: 5%;
+  margin-top: 10px;
   width: 25%;
   height: 25%;
   border-radius: 50%;
@@ -122,4 +113,15 @@ ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #003a30;
+}
+
+.card-body {
+    position: relative;
+    border: 2px solid #005446;
+    ;
+}
+
+#chat-box{
+    position: absolute; 
+    bottom: 0;
 }
