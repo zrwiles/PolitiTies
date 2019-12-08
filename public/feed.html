@@ -77,13 +77,13 @@
 
                     <li class="active">
 
-                        <a href="profile.html">Profile</a>
+                        <a id="profile" href="profile.html">Profile</a>
                     </li>
                     <li>
                         <a href="#">Wellesley</a>
                     </li>
                     <li>
-                        <a href="#">Boston</a>
+                        <a href="feed.html">Feed</a>
                     </li>
                     <li>
                         <a href="#">Updates</a>
@@ -91,7 +91,10 @@
                     <li>
                         <a href="#">Direct Messages</a>
                     </li>
-                </ul>
+                    <li>
+                      <a id="newpost" href="newEvent.html">New post</a>
+                    </li>
+            </ul>
                 <a id="signOut" href="index.html" onclick="signOut();"> Sign out</a>
             </nav>
             <p style=clear:left></p>
@@ -105,7 +108,7 @@
 
             
     </div> 
-        </div>
+     
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 // // The Firebase SDK is initialized and available here!
@@ -144,8 +147,14 @@
                     });
                 });
             }
+            function goToProfile(){
+         var profileLink = firebase.auth().currentUser.uid;
+         var prof = document.getElementById("profile");
+         prof.setAttribute("href", "profile.html?id=" + profileLink);
+     }
             function authStateObserver(user) {
                 if (user) { // User is signed in!
+                 goToProfile();
                     //document.getElementById("sign-in").hidden = true;
                     //document.getElementById("sign-out").hidden = false;
                 } else { // User is signed out!

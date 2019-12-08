@@ -1,185 +1,302 @@
 <!DOCTYPE html>
-<!Index Firebase >
+<!Index Firebase>
 
-<html>
+    <html>
 
-<head>
-    <!-- Firebase stuff -->
-    <script defer src='/__/firebase/7.2.2/firebase-app.js'></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src='/__/firebase/7.2.2/firebase-auth.js'></script>
-    <script defer src='/__/firebase/7.2.2/firebase-database.js'></script>
-    <script defer src='/__/firebase/7.2.2/firebase-messaging.js'></script>
-    <!--<script defer src="/__/firebase/7.1.0/firebase-storage.js"></script>-->
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src='/__/firebase/7.2.2/firebase-firestore.js'></script>
-    <script defer src='/__/firebase/init.js'></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="profilecss.css">
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+            integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="eventcss.css">
 
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-</head>
+        <!-- Font Awesome JS -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+            crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+            crossorigin="anonymous"></script>
 
-<body>
+        <!-- update the version number as needed -->
+        <script defer src="/__/firebase/7.2.2/firebase-app.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script defer src="/__/firebase/7.2.2/firebase-auth.js"></script>
+        <script defer src="/__/firebase/7.2.2/firebase-database.js"></script>
+        <script defer src="/__/firebase/7.2.2/firebase-messaging.js"></script>
+        <script defer src="/__/firebase/7.2.2/firebase-storage.js"></script>
+        <!-- initialize the SDK after all desired features are loaded -->
+        <script defer src='/__/firebase/7.2.2/firebase-firestore.js'></script>
+        <script defer src="/__/firebase/init.js"></script>
+    </head>
+
+    <body>
 
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <!-- Popper.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+            crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+            crossorigin="anonymous"></script>
+
+
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>PolitiTies</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+
+                    <li class="active">
+
+                      <a id ="profile" href='profile.html?id="+doc.id+"'> Profile</a>
+                    </li>
+                    <li>
+                        <a href="#">Wellesley</a>
+                    </li>
+                    <li>
+                        <a href="feed.html">Feed</a>
+                    </li>
+                    <li>
+                        <a href="#">Updates</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Messages</a>
+                    </li>
+                </ul>
+                <a id="signOut" href="index.html" onclick="signOut();"> Sign out</a>
+            </nav>
             
-    <div class="wrapper">
-        <!-- Sidebar -->
-        <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>PolitiTies</h3>
-        </div>
+            <div>
+                <p>Add an event</p>
+                <div class="tab">
+                    <button class="tablinks" onclick="openPost(event, 'Event')">Event</button>
+                    <button class="tablinks" onclick="openPost(event, 'Post')">Post</button>
+                    
+                </div>
+                <div id="Event" class="tabcontent">
+                    
+                    <form id="new-event">
+                    <table>
+                        <tr>
+                            <td><label for="title">Title:</label></td>
+                            <td><input id="title" name="title"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="Location">Location:</label></td>
+                            <td><input id="location" name="location"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="text">Text:</label></td>
+                            <td><input id="text" name="text"></td>
+                        </tr>
+                        <tr>
+                            <td><form action="/action_page.php">
+                            Image: <input type="file" id="picFile"><br><br>
+                            </form></td>
 
-        <ul class="list-unstyled components">
-           
-            <li class="active">
-               
-                <a href="profile.html" >Profile</a>
-            </li>
-            <li>
-                <a href="#">Wellesley</a>
-            </li>
-            <li>
-                <a href="#">Boston</a>
-            </li>
-            <li>
-                <a href="#">Updates</a>
-            </li>
-            <li>
-                <a href="#">Direct Messages</a>
-            </li>
-        </ul>
-    </nav>
-    <div>
-            <p>Add an event</p>
-            <form id="new-post" >
-                <table>
-                    <tr><td><label for="title">Title:</label></td>
-                        <td><input id="title" name="title"></td>
-                    </tr>
-                    <tr><td><label for="Location">Location:</label></td>
-                        <td><input id="location" name="location"></td>
-                    </tr>
-                    <tr><td><label for="text">Text:</label></td>
-                        <td><input id="text" name="text"></td>
-                    </tr>
-                    <tr><td><label for="pic">Image Link:</label></td>
-                        <td><input id="pic" name="pic"></td>
-                    </tr>
-                    <tr><td>Type:</td>
-                        <td><fieldset>
-                            <label>
-                                <input required type="radio" name="type" value="event">
-                                event
-                            </label>
-                            <label>
-                                <input required type="radio" name="type" value="post">
-                                post
-                            </label>
-                            </fieldset>
-                    </td></tr>
-        
+
+                            <!-- <td><label for="pic">Image Link:</label></td> -->
+                            <!-- <td><input id="pic" name="pic"></td> -->
+                        </tr>
+                        
+
                     </table>
-                <p>
-                    <button id="post-event" onclick="addEvent()">post</button>
-                    <button type='submit' id="cancel-add-event" onclick="window.location='feed.html'">cancel</button>
-                </p>
-        </form>
+                     <p>
+                        <button type="button" id="post-event" onclick="addEvent();">post</button>
+                        <button type="button" id="cancel-add-event"
+                            onclick="window.location='feed.html'">cancel</button>
+                    </p>
+                </form>
+                   
+                </div>
+
+                <div id="Post" class="tabcontent">
+                    <form id="new-post">
+                    <table>
+                        <tr>
+                            <td><label for="title">Title:</label></td>
+                            <td><input id="title" name="title"></td>
+                        </tr>
+            
+                        <tr>
+                            <td><label for="text">Text:</label></td>
+                            <td><input id="text" name="text"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="link">Link:</label></td>
+                            <td><input id="link" name="link"></td>
+                        </tr>
+                        <tr>
+                            <td><form action="/action_page.php">
+                            Image: <input type="file" id= "picFile"><br><br>
+                            </form></td>
+
+
+                            <!-- <td><label for="pic">Image Link:</label></td> -->
+                            <!-- <td><input id="pic" name="pic"></td> -->
+                        </tr>
+            
+
+                    </table>
+                   
+                </form>
+                     <p>
+                        <button type="button" id="post-event" onclick="addEvent();">post</button>
+                        <button type="button" id="cancel-add-event"
+                            onclick="window.location='feed.html'">cancel</button>
+                    </p>
+                </div>
+
+              
             </div>
-        
-    </div>
-    <!--</div>-->
-    <script>
-    	
-      document.addEventListener('DOMContentLoaded', function() {
-       
-        // // The Firebase SDK is initialized and available here!
-        //
-        firebase.auth().onAuthStateChanged(authStateObserver);
-        intializeApp();
-        
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-      
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
+        </div>
+        <!--</div>-->
+        <script>
 
-      function addEvent(){
-        var db = firebase.firestore();
-        var title = document.getElementById("Title");
-        db.collection("posts").push({
-          Title: document.getElementById('title'), //get message from input
-          author: user.Name,
-          image: document.getElementById('pic'),
-          location: document.getElementById('location'),
-          text: document.getElementById('text'),
-          time: Date.now(),
-          type: document.getElementById('type'),
-        });
+            document.addEventListener('DOMContentLoaded', function () {
 
-        window.location = 'feed.html';
+                // // The Firebase SDK is initialized and available here!
+                //
+                firebase.auth().onAuthStateChanged(authStateObserver);
+                intializeApp();
 
-      }
+                // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+                // firebase.messaging().requestPermission().then(() => { });
+                // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+                //
+            });
+
+            function openPost(evt, eventType) {
+  // Declare all variables
+                var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+                tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }   
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(eventType).style.display = "block";
+            evt.currentTarget.className += " active";
+                }
 
 
-      function signIn() {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider);
-      }
-      function signOut() {
-         firebase.auth().signOut();
-      }
-      function intializeApp(){
-	      //get the HTML element where you want to print the name
-        var title = document.getElementById("Title"); 
-        var db = firebase.firestore();
-        // db.collection("posts").doc("23nfkYtelmXDXNG1vfVd").onSnapshot(function(document) {
-        //      title.innerHTML = document.data().Title;
-        //  });
-        // db.collection("user").get().then(function(querySnapshot) {
-        //  querySnapshot.forEach(function(doc) {
-        //    name.innerHTML= name.innerHTML + doc.data().Name;
-        //     });
-        // });
+            function addEvent() {
+                var db = firebase.firestore();
+                // var title = document.getElementById("Title");
+                console.log("addevent");
+                var userid = firebase.auth().currentUser.uid;
+                var t =  document.getElementById('title');
+                var p =  document.getElementById('picFile');
+                var l =  document.getElementById('location');
+                var te = document.getElementById('text');
+                
+                
+                  
+                db.collection("posts").doc().set({
+                    Title: t.value, //get message from input
+                    poster: firebase.auth().currentUser.uid,
+                 //   image: p.src,
+                    location: l.value,
+                    text: te.value,
+                    Timestamp: Date.now(),
+                })
+                
 
-      }
+                .then(function() {
+                   window.location = 'feed.html';
+                        })
+                .catch(function(error) {
+                    console.error("Error writing document: ", error);
+                });
+                
+               
+                
+                db.collection("user").doc(userid).collection("posts").doc().set({
+                    title: t.value, //get message from input
+                    poster: firebase.auth().currentUser.uid,
+                    image: p.src,
+                    location: l.value,
+                    text: te.value,
+                    Timestamp: Date.now(),
+                })
+                 .then(function() {
 
-      function authStateObserver(user) {
-        if (user) { // User is signed in!
-            document.getElementById("sign-in").hidden = true;
-            document.getElementById("sign-out").hidden = false;
-        } else { // User is signed out!
-            document.getElementById("sign-in").hidden = false;
-            document.getElementById("sign-out").hidden = true;
-        }}
+                  //  console.log("Added to user collection");
+                  //  window.location = 'feed.html';
+                        })
+                .catch(function(error) {
+                    console.error("Error writing document: ", error);
+                });
 
-      
-    </script>
-  </body>
-</html>
+                window.location = 'feed.html';
+                
+                
+                //adding to user posts collection 
+               
+            }
+            
+            function signIn() {
+                var provider = new firebase.auth.GoogleAuthProvider();
+                firebase.auth().signInWithPopup(provider);
+            }
+            function signOut() {
+                firebase.auth().signOut();
+            }
+            function intializeApp() {
+                //get the HTML element where you want to print the name
+                var title = document.getElementById("Title");
+                var db = firebase.firestore();
+                // db.collection("posts").doc("23nfkYtelmXDXNG1vfVd").onSnapshot(function(document) {
+                //      title.innerHTML = document.data().Title;
+                //  });
+                // db.collection("user").get().then(function(querySnapshot) {
+                //  querySnapshot.forEach(function(doc) {
+                //    name.innerHTML= name.innerHTML + doc.data().Name;
+                //     });
+                // });
+            }
+        function goToProfile(){
+         var profileLink = firebase.auth().currentUser.uid;
+         var prof = document.getElementById("profile");
+         prof.setAttribute("href", "profile.html?id=" + profileLink);
+     }
+            function authStateObserver(user) {
+                if (user) { 
+                    goToProfile();
+                   
+                    // User is signed in!
+                    // document.getElementById("sign-in").hidden = true;
+                    // document.getElementById("sign-out").hidden = false;
+                } else { // User is signed out!
+                    // document.getElementById("sign-in").hidden = false;
+                    // document.getElementById("sign-out").hidden = true;
+                }
+            }
+
+        </script>
+    </body>
+
+    </html>

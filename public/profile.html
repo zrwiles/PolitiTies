@@ -67,7 +67,7 @@
                 <a href="#">Wellesley</a>
             </li>
             <li>
-                <a href="#">Boston</a>
+                <a href="feed.html">Feed</a>
             </li>
             <li>
                 <a href="#">Updates</a>
@@ -77,8 +77,11 @@
             <li>
                 <a href="#">Direct Messages</a>
             </li>
+            <li>
+                <a id="newpost" href="newEvent.html">New post</a>
+            </li>
         </ul>
-     <a id="signOut" href="index.html" onclick="signOut();"> Sign out</a>
+     <a id="signOut" href="index.html" onclick="signOut();">Sign out</a>
     </nav>
 <div class="container">
 	<div class="row">
@@ -198,34 +201,36 @@
     function addTie(){
         var vals = window.location.search.split("=");
         var db = firebase.firestore();
+        var name, bio, school, username, friends; 
         var currentUser = firebase.auth().currentUser.uid;
         // if not on users page 
         if (currentUser != vals[1]){
          // create an empty friends arr
-         var friendsList =[];
+    
             // get info from current list of friends 
+            
             db.collection("user").doc(currentUser).onSnapshot(function (doc) {
                 friends = doc.data().friends;
-                var i;
-                for (i = 0; i < friends.length; i++){
-                    friendsList.push(friends[i]); 
-                }
-          }); 
-        var i;
-        for (i = 0; i < friendsList.length; i++){
-            console.log(friendsList[i]);
+                name = doc.data().Name;
+                bio = doc.data().bio;
+                school = doc.data().school;
+                username = doc.data().username; 
+                
+                if (friends.includes(vals[1]) == false){
+                friends.push(vals[1]);
+               
+                
+                db.collection("user").doc(currentUser).set({
+                      Name: name,
+                      friends: friends,
+                      bio: bio,
+                      school: school, 
+                      username: username,
+            
+                }); 
+                 }
+          });   
         }
-        friendsList.push(vals[1]);
-       // for (i = 0; i < friendsList.length; i++){
-      //      console.log(friendsList[i]);
-      //  }
-        db.collection("user").doc(vals[1]).update({
-            friends: friendsList,
-        });
-
-         
-        }
-        
     }
     
 
@@ -252,6 +257,7 @@
     function signOut(){
      firebase.auth().signOut();
     }
+  
     function goToProfile(){
          var profileLink = firebase.auth().currentUser.uid;
          var prof = document.getElementById("profile");
